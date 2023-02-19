@@ -74,6 +74,18 @@ export const counterSlice = createSlice({
       }
       })
     },
+    logout: (state) => {
+      state.isLoggedIn = false;
+      state.name = "";
+      state.userId = "";
+      state.status = "idle";
+      state.sucSignup = false;
+      state.itemList = [];
+      state.itemDetails = {};
+      state.cart = [];
+      state.isShowCart = false;
+    },
+
   },
   extraReducers: (builder) => {
     builder
@@ -103,7 +115,7 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { sucSignupFalse, setItemDetails, removeItemDetails, addToCart, showHideCart, removeFromCart } = counterSlice.actions;
+export const { sucSignupFalse, setItemDetails, removeItemDetails, addToCart, showHideCart, removeFromCart, logout } = counterSlice.actions;
 
 export const selectStore = (state) => state.itemStore;
 
